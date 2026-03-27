@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Screen Saver</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Screen Saver</h1>
+    
+    <button id="activate-btn" class="activate-btn">
+      Activate Screen Saver
+    </button>
+
+    <div class="section">
+      <h2>Select Screen Saver</h2>
+      <div class="saver-options">
+        <label class="saver-option">
+          <input type="radio" name="saver" value="floating-text" checked>
+          <span class="saver-info">
+            <span class="saver-name">Floating Text</span>
+            <span class="saver-desc">Bouncing text across the screen</span>
+          </span>
+        </label>
+        
+        <label class="saver-option">
+          <input type="radio" name="saver" value="matrix">
+          <span class="saver-info">
+            <span class="saver-name">Matrix Rain</span>
+            <span class="saver-desc">Classic green digital rain</span>
+          </span>
+        </label>
+        
+        <label class="saver-option">
+          <input type="radio" name="saver" value="fireworks">
+          <span class="saver-info">
+            <span class="saver-name">Fireworks</span>
+            <span class="saver-desc">Colorful explosive bursts</span>
+          </span>
+        </label>
+        
+        <label class="saver-option">
+          <input type="radio" name="saver" value="starfield">
+          <span class="saver-info">
+            <span class="saver-name">Starfield</span>
+            <span class="saver-desc">Flying through space</span>
+          </span>
+        </label>
+        
+        <label class="saver-option">
+          <input type="radio" name="saver" value="dvd-logo">
+          <span class="saver-info">
+            <span class="saver-name">DVD Logo</span>
+            <span class="saver-desc">Bouncing logo, color on corner hit</span>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section floating-text-config" id="floating-text-config">
+      <h2>Floating Text Options</h2>
+      <div class="form-group">
+        <label for="floating-text">Display Text</label>
+        <input type="text" id="floating-text" value="Hello World" maxlength="50">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="text-color">Text Color</label>
+          <input type="color" id="text-color" value="#00ff88">
+        </div>
+        <div class="form-group">
+          <label for="bg-color">Background</label>
+          <input type="color" id="bg-color" value="#1a1a2e">
+        </div>
+      </div>
+    </div>
+
+    <div class="section matrix-config" id="matrix-config">
+      <h2>Matrix Options</h2>
+      <div class="form-group">
+        <label for="matrix-speed">Rain Speed</label>
+        <select id="matrix-speed">
+          <option value="very-slow">Very Slow</option>
+          <option value="slow" selected>Slow</option>
+          <option value="medium">Medium</option>
+          <option value="fast">Fast</option>
+          <option value="very-fast">Very Fast</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Lock Screen</h2>
+      <label class="checkbox-label">
+        <input type="checkbox" id="password-prompt" checked>
+        <span>Show fake password prompt</span>
+      </label>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

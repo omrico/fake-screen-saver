@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: #0f0f1a;
+  color: #e0e0e0;
+  width: 320px;
+  min-height: 400px;
+}
+
+.container {
+  padding: 16px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+h2 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.activate-btn {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.activate-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.activate-btn:active {
+  transform: translateY(0);
+}
+
+.saver-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.saver-option {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  background: #1a1a2e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.saver-option:hover {
+  background: #252540;
+}
+
+.saver-option input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+  accent-color: #667eea;
+}
+
+.saver-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.saver-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.saver-desc {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.floating-text-config,
+.matrix-config {
+  display: none;
+}
+
+.floating-text-config.visible,
+.matrix-config.visible {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #fff;
+  background: #1a1a2e;
+  border: 1px solid #333;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-group input[type="text"]:focus {
+  border-color: #667eea;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-group input[type="color"] {
+  width: 100%;
+  height: 36px;
+  padding: 2px;
+  background: #1a1a2e;
+  border: 1px solid #333;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #fff;
+  background: #1a1a2e;
+  border: 1px solid #333;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.form-group select:focus {
+  border-color: #667eea;
+}
+
+.form-group select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #1a1a2e;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #667eea;
+}
+
+.checkbox-label span {
+  font-size: 14px;
+}
