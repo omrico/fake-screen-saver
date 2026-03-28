@@ -59,50 +59,6 @@ h2 {
   transform: translateY(0);
 }
 
-.saver-options {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.saver-option {
-  display: flex;
-  align-items: center;
-  padding: 10px 12px;
-  background: #1a1a2e;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.saver-option:hover {
-  background: #252540;
-}
-
-.saver-option input[type="radio"] {
-  width: 16px;
-  height: 16px;
-  margin-right: 12px;
-  accent-color: #667eea;
-}
-
-.saver-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.saver-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: #fff;
-}
-
-.saver-desc {
-  font-size: 11px;
-  color: #888;
-  margin-top: 2px;
-}
-
 .floating-text-config,
 .matrix-config {
   display: none;

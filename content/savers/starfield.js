@@ -11,7 +11,8 @@
 
     reset(canvas, initial = false) {
       const angle = Math.random() * Math.PI * 2;
-      const distance = initial ? Math.random() * Math.max(canvas.width, canvas.height) : 0;
+      const maxDist = Math.max(canvas.width, canvas.height) * 0.5;
+      const distance = Math.random() * maxDist + 50;
       
       this.x = Math.cos(angle) * distance;
       this.y = Math.sin(angle) * distance;

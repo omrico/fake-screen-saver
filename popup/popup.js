@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const activateBtn = document.getElementById('activate-btn');
-  const saverRadios = document.querySelectorAll('input[name="saver"]');
+  const saverSelect = document.getElementById('saver-select');
   const floatingTextConfig = document.getElementById('floating-text-config');
   const matrixConfig = document.getElementById('matrix-config');
   const floatingTextInput = document.getElementById('floating-text');
@@ -12,16 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
   loadConfig();
 
   function updateConfigVisibility() {
-    const selectedSaver = document.querySelector('input[name="saver"]:checked').value;
+    const selectedSaver = saverSelect.value;
     floatingTextConfig.classList.toggle('visible', selectedSaver === 'floating-text');
     matrixConfig.classList.toggle('visible', selectedSaver === 'matrix');
   }
 
-  saverRadios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      updateConfigVisibility();
-      saveConfig();
-    });
+  saverSelect.addEventListener('change', () => {
+    updateConfigVisibility();
+    saveConfig();
   });
 
   floatingTextInput.addEventListener('input', saveConfig);
@@ -32,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getConfig() {
     return {
-      saver: document.querySelector('input[name="saver"]:checked').value,
+      saver: saverSelect.value,
       floatingText: {
         text: floatingTextInput.value || 'Hello World',
         textColor: textColorInput.value,
@@ -51,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.storage.local.get('screenSaverConfig', (result) => {
       const config = result.screenSaverConfig;
       if (config) {
-        const saverRadio = document.querySelector(`input[name="saver"][value="${config.saver}"]`);
-        if (saverRadio) saverRadio.checked = true;
+        if (config.saver) {
+          saverSelect.value = config.saver;
+        }
 
         if (config.floatingText) {
           floatingTextInput.value = config.floatingText.text || 'Hello World';
