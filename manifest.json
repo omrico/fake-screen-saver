@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Fake Screen Saver",
-  "version": "1.0.0",
-  "description": "A fun fake screen saver extension with multiple animations and a fake lock screen",
+  "version": "1.0.1",
+  "description": "A fun fake screen saver extension with multiple animations and a fake lock screen.",
   "permissions": [
     "storage"
   ],
