@@ -16,6 +16,7 @@
   let isLocked = false;
   let hasStarted = false;
   let hasInteracted = false;
+  let isDemoMode = false;
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -23,7 +24,7 @@
   }
 
   function handleInteraction(e) {
-    if (!hasStarted || isLocked) return;
+    if (!hasStarted || isLocked || isDemoMode) return;
 
     if (e.type === 'mousemove') {
       if (!hasInteracted) {
@@ -92,26 +93,38 @@
     if (hasStarted) return;
     hasStarted = true;
 
-    document.documentElement.requestFullscreen().then(() => {
+    function beginAnimation() {
       startOverlay.classList.add('hidden');
-      document.body.style.cursor = 'none';
+      if (!isDemoMode) {
+        document.body.style.cursor = 'none';
+      }
       
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
 
-      document.addEventListener('mousemove', handleInteraction);
-      document.addEventListener('click', handleInteraction);
-      document.addEventListener('keydown', handleKeyDown);
+      if (!isDemoMode) {
+        document.addEventListener('mousemove', handleInteraction);
+        document.addEventListener('click', handleInteraction);
+        document.addEventListener('keydown', handleKeyDown);
+      }
 
       if (window.FakeScreenSaverModules && window.FakeScreenSaverModules[config.saver]) {
         currentSaver = window.FakeScreenSaverModules[config.saver];
         currentSaver.init(canvas, ctx, config);
         animate();
       }
-    }).catch((err) => {
-      console.error('Fullscreen failed:', err);
-      alert('Fullscreen mode is required for the screen saver. Please try again.');
-    });
+    }
+
+    if (isDemoMode) {
+      beginAnimation();
+    } else {
+      document.documentElement.requestFullscreen().then(() => {
+        beginAnimation();
+      }).catch((err) => {
+        console.error('Fullscreen failed:', err);
+        alert('Fullscreen mode is required for the screen saver. Please try again.');
+      });
+    }
   }
 
   function handleKeyDown(e) {
@@ -156,8 +169,14 @@
     config = result.screenSaverConfig || {
       saver: 'floating-text',
       floatingText: { text: 'Hello World', textColor: '#00ff88', bgColor: '#1a1a2e' },
+      demoMode: false,
       passwordPrompt: true
     };
+    isDemoMode = config.demoMode || false;
+    
+    if (isDemoMode) {
+      startScreenSaver();
+    }
   });
 
   window.FakeScreenSaverModules = window.FakeScreenSaverModules || {};

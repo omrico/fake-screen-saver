@@ -2,14 +2,13 @@
 
 A Chrome extension that displays a full-screen fake screen saver with a fake password lock screen. For developers who want to grab a coffee without locking their screen, but still need to look compliant when IT security walks by.
 
+![Matrix Rain](assets/matrix.png)
+
+![Maze](assets/maze.png)
+
 ## Features
 
-- **5 Screen Savers**
-  - **Floating Text** - Bouncing text with customizable colors
-  - **Matrix Rain** - Classic green digital rain with adjustable speed
-  - **Fireworks** - Colorful explosive bursts
-  - **Starfield** - Flying through space
-  - **DVD Logo** - Bouncing logo that changes color on corner hits
+- **10 Screen Savers** - Matrix Rain, Floating Text, Fireworks, Starfield, DVD Logo, Maze, Pipes, Bubbles, and more!
 
 - **Fake Lock Screen** - When you move the mouse or press a key, a realistic-looking password prompt appears. Any password unlocks it.
 
@@ -19,7 +18,7 @@ A Chrome extension that displays a full-screen fake screen saver with a fake pas
 
 ### From Chrome Web Store
 
-*Coming soon*
+[![Install from Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Install-blue?logo=googlechrome)](https://chromewebstore.google.com/detail/fake-screen-saver/kppohdhjjognnjclpfdhdccobdmemjne)
 
 ### Manual Installation (Developer Mode)
 

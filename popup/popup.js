@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const textColorInput = document.getElementById('text-color');
   const bgColorInput = document.getElementById('bg-color');
   const matrixSpeedSelect = document.getElementById('matrix-speed');
+  const demoModeCheckbox = document.getElementById('demo-mode');
   const passwordPromptCheckbox = document.getElementById('password-prompt');
 
   loadConfig();
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   textColorInput.addEventListener('input', saveConfig);
   bgColorInput.addEventListener('input', saveConfig);
   matrixSpeedSelect.addEventListener('change', saveConfig);
+  demoModeCheckbox.addEventListener('change', saveConfig);
   passwordPromptCheckbox.addEventListener('change', saveConfig);
 
   function getConfig() {
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bgColor: bgColorInput.value
       },
       matrixSpeed: matrixSpeedSelect.value,
+      demoMode: demoModeCheckbox.checked,
       passwordPrompt: passwordPromptCheckbox.checked
     };
   }
@@ -60,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         matrixSpeedSelect.value = config.matrixSpeed || 'slow';
+        demoModeCheckbox.checked = config.demoMode || false;
         passwordPromptCheckbox.checked = config.passwordPrompt !== false;
       }
       updateConfigVisibility();
